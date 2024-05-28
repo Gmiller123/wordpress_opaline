@@ -1,0 +1,199 @@
+%title {
+  @include font($title-font-family);
+  color: $heading-color;
+  line-height: 1 !important;
+}
+
+.title {
+  &-sm {
+    @extend %title;
+    @include font-w("bold");
+    @include font-s(20);
+
+    @include breakpoint-up(sm) {
+      @include font-s(24);
+    }
+
+    @include breakpoint-up(lg) {
+      @include font-s(28);
+    }
+
+    @include breakpoint-up(xxl) {
+      @include font-s(32);
+    }
+  }
+
+  &-base {
+    @extend %title;
+    @include font-w("bold");
+    @include font-s(24);
+
+    @include breakpoint-up(sm) {
+      @include font-s(28);
+    }
+
+    @include breakpoint-up(lg) {
+      @include font-s(32);
+    }
+
+    @include breakpoint-up(xxl) {
+      @include font-s(36);
+    }
+  }
+
+  &-lg {
+    @extend %title;
+    @include font-w("bold");
+    @include font-s(28);
+
+    @include breakpoint-up(sm) {
+      @include font-s(32);
+    }
+
+    @include breakpoint-up(lg) {
+      @include font-s(36);
+    }
+
+    @include breakpoint-up(xxl) {
+      @include font-s(42);
+    }
+  }
+
+  &-x-lg {
+    @extend %title;
+    @include font-w("bold");
+    @include font-s(32);
+
+    @include breakpoint-up(sm) {
+      @include font-s(36);
+    }
+
+    @include breakpoint-up(lg) {
+      @include font-s(42);
+    }
+
+    @include breakpoint-up(xl) {
+      @include font-s(52);
+    }
+  }
+}
+
+%scTitle {
+  color: map-get($colors, clr-berkeley-blue);
+  @extend %title;
+  @include font-w("normal");
+  @include font-s(28);
+
+  @include breakpoint-up(sm) {
+    @include font-s(32);
+  }
+
+  @include breakpoint-up(lg) {
+    @include font-s(36);
+  }
+
+  @include breakpoint-up(xxl) {
+    @include font-s(36);
+  }
+
+}
+
+.sc-title {
+  @include flex-center;
+  gap: 10px;
+  margin-bottom: 51px;
+
+  .icon {
+    padding: 8px;
+    @include bg-color(map-get($colors, clr-white));
+    @include flex-center;
+    @include box(38px);
+    @include border(map-get($colors, clr-thistle));
+    @include border-radius(10px);
+  }
+
+  .title-text {
+    @extend %scTitle;
+  }
+
+  &-w {
+    color: map-get($colors, clr-white-smoke);
+    @extend %title;
+    // @include font-w("bold");
+    margin-bottom: 15px;
+    @include font-s(32);
+
+    @include breakpoint-up(sm) {
+      @include font-s(36);
+      margin-bottom: 20px;
+    }
+
+    @include breakpoint-up(lg) {
+      @include font-s(42);
+      margin-bottom: 20px;
+    }
+
+    @include breakpoint-up(xl) {
+      @include font-s(52);
+    }
+  }
+
+  &-sec {
+    width: fit-content;
+    @include px(0, 10px);
+    color: map-get($colors, clr-darkPurple);
+    @include pos-relative;
+    z-index: 2;
+
+    @include breakpoint-up(md) {
+      &::after {
+        @include pseudo;
+        top: 50%;
+        left: 100%;
+        transform: translateY(-50%);
+        height: 0.5px;
+        width: 200%;
+        background-color: map-get($colors, clr-dimGray);
+        z-index: -1;
+        @include breakpoint-up(lg){
+          width: 700px;
+        }
+        @include breakpoint-up(xl){
+          width: 875px;
+        }
+        @include breakpoint-up(xxl){
+          width: 1055px;
+        }
+      }
+    }
+  }
+}
+
+%bannerTitle {
+  @include font-w("semi-bold");
+  font-family: $font-family-Pl;
+  color: map-get($colors, clr-black);
+  text-align: center;
+  margin-bottom: 10px;
+  @include font-s(42);
+
+  @include breakpoint-up(sm) {
+    @include font-s(46);
+  }
+
+  @include breakpoint-up(md) {
+    @include font-s(50);
+  }
+
+  @include breakpoint-up(lg) {
+    @include font-s(54);
+  }
+
+  @include breakpoint-up(xl) {
+    @include font-s(58);
+  }
+}
+
+.banner-title {
+  @extend %bannerTitle;
+}

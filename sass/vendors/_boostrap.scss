@@ -1,0 +1,21 @@
+// @include breakpoint-down(lg){
+//     .navbar-toggler-icon{
+//         filter: invert(1);
+//         @include box(30px);
+//     }
+// }
+.btn:focus{
+    outline: 0;
+    box-shadow:none;
+}
+
+ul{
+    @include flush;
+    @include hard;
+}
+
+.form-control{
+    &:focus{
+        box-shadow: none;
+    }
+}

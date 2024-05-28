@@ -1,0 +1,122 @@
+.header {
+    &-top {
+        @include py(8px);
+        // @include bg-color(map-get($colors, clr-white));
+        @include bg-color(darken(map-get($colors, clr-seaSalt), 0.5%));
+
+        .header-quote {
+            @include p-text-x-sm;
+            color: map-get($colors, clr-jet);
+            font-family: $font-family-jo;
+            @include font-w('normal');
+            font-feature-settings: 'clig' off,
+                'liga' off;
+            gap: 6px;
+            text-align: center;
+            width: fit-content;
+            margin: auto;
+
+            @include breakpoint-down(lg) {
+                justify-content: end;
+                margin: 0;
+                margin-left: auto;
+            }
+
+
+        }
+
+        .currency {
+            &-container {
+                display: flex;
+                align-items: center;
+                justify-items: end;
+                width: fit-content;
+                margin-left: auto;
+                gap: 8px;
+
+                p {
+                    @include p-text-x-sm;
+                    color: map-get($colors, clr-jet);
+                    font-family: $font-family-jo;
+                    @include font-w('normal');
+                }
+
+                .icon {
+                    @include box(25px);
+                    overflow: hidden;
+                    border: 2px solid map-get($colors, clr-voilet);
+                    @include border-r-circle;
+
+                    .img-cover {
+                        height: 100%;
+                    }
+                }
+            }
+
+            &-type {
+                @include p-text-x-sm;
+                color: map-get($colors, clr-jet);
+                font-family: $font-family-jo;
+            }
+        }
+    }
+
+    &-main {
+        @include bg-color(darken(map-get($colors, clr-seaSalt), 2%));
+
+        @include breakpoint-down(lg) {
+            .navbar-brand {
+                order: 1;
+            }
+
+            .right-container {
+                order: 2;
+            }
+
+            .form {
+                order: 3;
+            }
+        }
+
+        .form {
+            form {
+                @include breakpoint-up(md) {
+                    width: 695px;
+                }
+                @include breakpoint-up(lg) {
+                    width: 500px;
+                }
+                @include breakpoint-up(xl) {
+                    width: 670px;
+                }
+                @include breakpoint-up(xxl) {
+                    width: 770px;
+                }
+
+                @include breakpoint-down(md) {
+                    width: 100%;
+                }
+            }
+        }
+    }
+}
+
+.socialmedia {
+
+    &-title {
+        font-family: $font-family-jo;
+        color: map-get($colors, clr-mauveine);
+        @include font-w('bold');
+        @include p-text-x-sm;
+        margin-right: 7px;
+    }
+
+    &-list {
+        display: flex;
+        align-items: center;
+        justify-content: start;
+        gap: 15px;
+        @include p-text-sm;
+        color: map-get($colors, clr-mauveine);
+    }
+}

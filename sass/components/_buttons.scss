@@ -1,0 +1,246 @@
+$btn-borderRadius: 13px;
+$btn-default-bgColor: map-get($colors, clr-black);
+$btn-default-textColor: map-get($colors, clr-white);
+$btn-default-bgColor--highlight: darken(map-get($colors, clr-black), 10%);
+$btn-default-textColor--hightlight: darken(map-get($colors, clr-white), 10%);
+
+%btn-default {
+  display: inline-block;
+  white-space: nowrap;
+  font-family: $base-font-family;
+  cursor: pointer;
+  overflow: hidden;
+  text-align: center;
+  user-select: none;
+  text-transform: capitalize;
+  border: none;
+  @include p-text-sm;
+  @include flush;
+  @include hard--bottom;
+  @include hard--top;
+  @include transition-default;
+  @include py(16px);
+  @include px(36px);
+  @include font-w(600);
+  @include line-height(16);
+  overflow-x: hidden !important;
+
+}
+
+.btn {
+  @extend %btn-default;
+
+  &,
+  &:link {
+    color: $btn-default-textColor;
+  }
+
+  &:hover,
+  &:active,
+  &:focus {
+    @include bg-color(map-get($colors, clr-mauveine-v2));
+    color: map-get($colors, clr-white);
+    @include transition-default;
+  }
+
+  &:active,
+  &:focus,
+  &:active {
+    outline: none;
+  }
+
+  &.disabled,
+  &[disabled] {
+    cursor: default;
+    @include bg-color($btn-default-bgColor);
+    opacity: 0.7;
+  }
+
+  &-primary {
+    @include border-radius(8px);
+    @include bg-color(map-get($colors, clr-mauveine-v2));
+    @include transition-default;
+    @include border(map-get($colors, clr-white));
+    @include px(50px);
+
+    &:hover {
+      border-color: transparent;
+    }
+
+    &-sm {
+      @include px(8px);
+      @include py(4px);
+      @include font-w('normal');
+      @include border-radius(8px);
+      @include bg-color(map-get($colors, clr-mauveine-v2));
+      @include transition-default;
+      @include border(map-get($colors, clr-white));
+
+      &:hover {
+        border-color: transparent;
+      }
+    }
+
+    &-md {
+      @include px(22px !important);
+      @include py(10px !important);
+      @include font-w('normal');
+      @include border-radius(8px);
+      @include bg-color(map-get($colors, clr-mauveine-v2));
+      @include transition-default;
+      @include p-text-sm;
+      @include border(map-get($colors, clr-white));
+
+      &:hover {
+        border-color: transparent;
+      }
+    }
+  }
+
+  &-black {
+    @include border-r-none;
+    @include bg-color(map-get($colors, clr-black));
+    @include transition-default;
+    @include px(50px);
+
+    &:hover {
+      border-color: transparent;
+    }
+  }
+
+  &-sm {
+    @include px(8px);
+    @include py(4px);
+    @include font-w('normal');
+    @include border-radius(8px);
+    @include bg-color(map-get($colors, clr-mauveine-v2));
+    @include transition-default;
+    @include border(map-get($colors, clr-white));
+
+    &:hover {
+      border-color: transparent;
+    }
+  }
+
+
+  &-secondary {
+    @include border-radius(8px);
+    @include bg-color(map-get($colors, clr-white));
+    color: map-get($colors, clr-mauveine-v2);
+    @include transition-default;
+    @include px(50px);
+    @include border(lighten(map-get($colors, clr-voilet), 10%), 2px);
+
+    .icon {
+      @include p-text-x-lg;
+      @include transition-default;
+      color: map-get($colors, clr-mauveine-v2);
+    }
+
+
+    &:hover,
+    &.active {
+      @include transition-default;
+      @include bg-color(map-get($colors, clr-mauveine-v2));
+      border-color: map-get($colors, clr-mauveine-v2);
+
+      .icon {
+        @include transition-default;
+        color: map-get($colors, clr-white) !important;
+      }
+
+    }
+
+    &-md {
+      @include px(22px !important);
+      @include py(10px !important);
+      @include font-w('normal');
+      @include bg-color(map-get($colors, clr-white));
+      color: map-get($colors, clr-darkPurple) !important;
+      @include transition-default;
+      @include p-text-sm;
+      @include border-none;
+      @include border-r-none;
+
+      &:hover {
+        color: map-get($colors, clr-white) !important;
+      }
+    }
+
+    &-sm {
+      @include py(10px);
+      @include px(20px);
+      @include font-w('normal');
+      @include border-radius(0px);
+      @include bg-color(map-get($colors, clr-white));
+      color: map-get($colors, clr-darkPurple) !important;
+      @include transition-default;
+
+      &:hover {
+        border-color: transparent;
+        color: map-get($colors, clr-white) !important;
+      }
+    }
+
+  }
+
+  &-filter {
+    @extend %btn-default;
+    @include px(20px);
+    @include py(10px);
+    @include bg-color(transparent);
+    @include border(map-get($colors, clr-black), 2px);
+    @include transition-default;
+    color: map-get($colors, clr-black);
+
+    span {
+      margin-left: 5px;
+    }
+
+    &:hover,
+    &.active {
+      @include bg-color(map-get($colors, clr-black));
+      @include transition-default;
+      color: map-get($colors, clr-white);
+
+    }
+
+    &-sec {
+      @extend %btn-default;
+      @include px(20px);
+      @include py(10px);
+      @include bg-color(transparent);
+      @include border(map-get($colors, clr-dimGray), 2px);
+      @include transition-default;
+      color: map-get($colors, clr-dimGray);
+
+      span {
+        margin-left: 5px;
+      }
+
+      &:hover,
+      &.active {
+        @include bg-color(map-get($colors, clr-dimGray));
+        @include transition-default;
+        color: map-get($colors, clr-white);
+
+      }
+    }
+  }
+
+  &-icon {
+    margin-left: 5px;
+    color: map-get($colors, clr-jet);
+    @include border-none;
+    @include bg-none;
+  }
+
+  &-view {
+    margin-left: 5px;
+    color: map-get($colors, clr-black);
+    @include border-none;
+    @include font-w("semi-bold");
+    @include bg-none;
+  }
+
+}

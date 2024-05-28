@@ -1,0 +1,270 @@
+// mixin for colors and background generation
+@mixin gen-props($prefix, $property) {
+
+  @each $color-name,
+  $color in $colors {
+    $temp-color-name: str-replace($color-name, "clr-", "");
+
+    #{$prefix}-#{$temp-color-name} {
+      #{$property}: $color !important;
+    }
+  }
+}
+
+// mixin for font weights
+@mixin gen-font-weight($prefix, $property) {
+
+  @each $weight-name,
+  $weight in $font-weights {
+    $i: index(($font-weights), ($weight-name $weight));
+
+    #{$prefix}-#{$i} {
+      #{$property}: $weight !important;
+    }
+  }
+}
+
+// mixin for opacity
+@mixin gen-opacity($prefix, $property) {
+  @for $i from 1 through 9 {
+    #{$prefix}-0#{$i} {
+      #{$property}: unquote(#{str-remove-whitespace(unquote("0.") #{$i})
+    });
+  }
+}
+}
+
+.op-none {
+  opacity: 1 !important;
+}
+
+// mixin for font sizes
+@mixin gen-font($prefix, $property) {
+
+  @each $size-name,
+  $size in $font-size {
+    #{$prefix}-#{$size-name} {
+      #{$property}: unquote($size + "px");
+    }
+  }
+}
+
+// mixin for line-height
+@mixin gen-lh($prefix, $property) {
+  @for $i from 15 through 50 {
+    #{$prefix}-#{$i} {
+      #{$property}: unquote(#{str-remove-whitespace(#{$i})
+    }
+
+    +px);
+  }
+}
+}
+
+// color generation
+@include gen-props(".text", "color");
+// background color generation
+@include gen-props(".bg", "background-color");
+// font weights generations
+@include gen-font-weight(".fw", "font-weight");
+// opacity generation
+@include gen-opacity(".op", "opacity");
+// font size generation
+@include gen-font(".fs", "font-size");
+// line-heights generator
+@include gen-lh(".lh", "line-height");
+
+.font {
+  &-pop {
+    font-family: $font-family-pop;
+  }
+
+  &-pl {
+    font-family: $font-family-Pl;
+  }
+
+  &-jo {
+    font-family: $font-family-jo;
+  }
+  &-int {
+    font-family: $font-family-int;
+  }
+}
+
+// image cover
+.img-cover img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+}
+
+// no wrap
+.no-wrap {
+  white-space: nowrap;
+}
+
+// animation and transition stopper
+.resize-animation-stopper * {
+  animation: none !important;
+  transition: none !important;
+}
+
+//  width fit content 
+.w-fit {
+  width: fit-content;
+}
+
+// z-index
+.z-low {
+  z-index: $z-low;
+}
+
+.z-mid {
+  z-index: $z-mid;
+}
+
+.z-high {
+  z-index: $z-high;
+}
+
+// backgroun transparent
+.bg-none {
+  background: transparent !important;
+}
+
+// misc
+.is-hidden {
+  @include hidden;
+}
+
+.cf {
+  @include cf;
+}
+
+// height
+.vh-100 {
+  height: 100vh !important;
+}
+
+.min-width-auto {
+  min-width: auto !important;
+}
+
+// background properties
+.bg-property {
+  background-position: center !important;
+  background-repeat: no-repeat !important;
+  background-size: cover !important;
+}
+
+//banner-height
+.sc-banner {
+  &-sm {
+    height: calc(80vh - 153px);
+  }
+}
+
+// content styling
+%desc {
+  @include p-text-base;
+  margin-bottom: 8px;
+  @include flush;
+}
+
+.desc {
+  &-w {
+
+    p {
+      @extend %desc;
+      color: map-get($colors, clr-white);
+    }
+
+    ul,
+    ol {
+      list-style: inside;
+
+      list-style-type: decimal;
+      @include py(20px);
+
+
+    }
+
+    li,
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6 {
+      @include p-text-lg;
+      @include font-w("medium");
+      color: map-get($colors, clr-white);
+      @include py(20px);
+    }
+  }
+
+  &-b {
+
+    p {
+      @extend %desc;
+      color: map-get($colors, clr-davys-gray);
+    }
+
+    ul,
+    ol {
+      list-style: inside;
+
+      list-style-type: decimal;
+      @include py(10px);
+
+
+    }
+
+    li,
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6 {
+      @include p-text-lg;
+      @include font-w("semi-bold");
+      color: map-get($colors, clr-jet);
+      @include py(20px);
+    }
+  }
+}
+
+/*====================================================================================*/
+
+%overlay {
+  @include pos-relative;
+
+  &::after {
+    @include pseudo;
+    @include box(100%);
+    top: 0;
+    left: 0;
+  }
+}
+
+.overlay {
+  &-half {
+    @extend %overlay;
+
+    &::after {
+      background: linear-gradient(0deg,
+          map-get($colors, clr-russianViolet) -2.18%,
+          opacity(map-get($colors, clr-russianViolet), 0) 91.7%);
+    }
+  }
+
+  &-full {
+    @extend %overlay;
+
+    &::after {
+      background: opacity(darken(map-get($colors, clr-mauveine), 10%), 0.6);
+    }
+  }
+}

@@ -1,0 +1,95 @@
+// font sizes
+$font-size: (
+    '4x-sm': 12,
+    'xxx-sm': 13,
+    'xx-sm': 14,
+    'x-sm': 15,
+    'sm': 16,
+    'base': 18,
+    'md': 18,
+    'lg': 20,
+    'x-lg': 24,
+    'xx-lg': 27,
+    'xxx-lg': 32,
+);
+
+// letter spacing
+// $heading-letter-spacing: 0.03em;
+// $paragraph-letter-spacing: 0.02em;
+
+// FONT WEIGHTS
+$font-weights: (
+    'thin': 100,
+    'extra-light': 200,
+    'light': 300,
+    'normal': 400,
+    'medium': 500,
+    'semi-bold': 600,
+    'bold': 700,
+    'extra-bold': 800,
+    'ultra-bold': 900
+);
+//  base variable path 
+$baseImgPath: "../images/";
+// FONT STACKS
+
+$font-family-jo: 'Jost', sans-serif;
+$font-family-Pl: 'Playfair Display', serif;
+$font-family-pop: 'Poppins', sans-serif;
+$font-family-int: 'Inter',sans-serif;
+// title font family 
+$title-font-family: $font-family-pop;
+// BASE FONT
+$base-font-family: $font-family-pop;
+$base-font-color: $text-color;
+$base-font-size: map-get($font-size, 'base');
+$base-font-weight: map-get($font-weights, 'regular');
+$leading-base: 1.5;
+
+// FONT SIZES FOR H1 - H6
+$h1-font-size: 2 * $base-font-size;
+$h2-font-size: 1.5 * $base-font-size;
+$h3-font-size: 1.17 * $base-font-size;
+$h4-font-size: 1 * $base-font-size;
+$h5-font-size: 0.83 * $base-font-size;
+$h6-font-size: 0.67 * $base-font-size;
+
+// Z-INDEX 
+$z-low: 10;
+$z-mid: 100;
+$z-high: 1000;
+
+// TRANSITION
+$default-transition-timing: ease-in-out;
+$default-transition-duration: 300ms;
+$default-transition: all $default-transition-timing $default-transition-duration;
+
+// BREAKPOINTS
+$breakpoints-up: (
+    "xs": "425px",
+    "sm": "576px",
+    "md": "768px",
+    "lg": "992px",
+    "xl": "1200px",
+    "xxl": "1400px"
+);
+
+$breakpoints-down: (
+    "xs": "424.98px",
+    "sm": "575.98px",
+    "md": "767.98px",
+    "lg": "991.98px",
+    "xl": "1199.98px",
+    "xxl": "1399.98px"
+);
+
+$breakpoints: (
+    "phone": 400px,
+    "phone-wide": 480px,
+    "phablet": 560px,
+    "tablet-small": 640px,
+    "tablet": 768px,
+    "tablet-wide": 1024px,
+    "desktop": 1248px,
+    "desktop-wide": 1440px
+);

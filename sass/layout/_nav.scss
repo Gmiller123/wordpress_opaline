@@ -1,0 +1,268 @@
+.navbar {
+    @include hard;
+    @include py(10px);
+
+    &-brand {
+        flex-basis: 188px;
+
+        @include breakpoint-down(md) {
+            margin-bottom: 15px;
+            flex-basis: 220px;
+        }
+    }
+
+    .form {
+        @include border-radius(4px);
+        display: flex;
+        align-items: center;
+        @include bg-color(darken(map-get($colors, clr-seaSalt), 8%));
+
+        @include breakpoint-down(md) {
+            width: 100%;
+        }
+
+        form {
+            @include breakpoint-down(md) {
+                width: 100%;
+            }
+        }
+
+        // width: fit-content;
+        .form-control {
+            @include px(12px, 14px);
+            @include bg-color(transparent);
+            @include border-none;
+            @include p-text-sm;
+            color: $text-color;
+            overflow: hidden;
+
+            @include breakpoint-down(md) {
+                width: 100%;
+            }
+        }
+
+        @include breakpoint-down(md) {
+            @include my(0, 30px);
+        }
+
+        .btn-search {
+            @include bg-color(map-get($colors, clr-mauveine));
+            @include border-none;
+            color: map-get($colors, clr-white);
+            @include py(8px);
+            @include px(14px);
+        }
+    }
+
+    .nav {
+
+        &-link {
+            color: map-get($colors, clr-jet);
+            font-family: $font-family-jo;
+            // @include hard;
+            @include px(10px !important);
+        }
+
+        &-item {
+            @include mx(7px);
+        }
+    }
+
+    .right-container {
+        @include pos-relative;
+
+        .item-wrap {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+
+            .icon {
+
+                color: map-get($colors, clr-jet);
+                font-size: 20px;
+
+                &-wrap {
+                    padding-top: 5px;
+                    @include box(26px);
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    @include border-r-circle;
+                    @include border(map-get($colors, clr-jet), 2px);
+                    overflow: hidden;
+                }
+            }
+
+            .text {
+                padding-top: 5px;
+                color: map-get($colors, clr-jet);
+                @include p-text-x-sm;
+                font-family: $font-family-jo;
+                text-align: center;
+                @include font-w('normal');
+            }
+
+            .dropdown {
+                &-menu {
+
+                    @include bg-color(map-get($colors, clr-white));
+
+
+                }
+
+                &-item {
+                    color: map-get($colors, clr-jet);
+
+                    &:hover {
+                        @include bg-color(transparent);
+                    }
+                }
+            }
+        }
+    }
+
+    // screnn less than 992px 
+    &-collapse {
+        @include breakpoint-down(lg) {
+            @include pos-absolute;
+            top: 100%;
+            left: 0;
+            width: 100%;
+            @include bg-color(darken(map-get($colors, clr-seaSalt), 8%));
+            z-index: 9;
+
+            .navbar-nav {
+                max-width: 720px;
+                margin: auto;
+
+                @include breakpoint-down(md) {
+                    max-width: 540px;
+                }
+            }
+        }
+    }
+
+    &-main {
+        @include pos-relative;
+
+        .nav-dropdown {
+            @include bg-color(map-get($colors, clr-white));
+            @include pos-absolute;
+            top: 100%;
+            left: 0;
+            width: 100%;
+            z-index: 5;
+            display: none;
+
+            &.show {
+                display: block;
+            }
+        }
+
+        .dropdown-content {
+            display: grid;
+            gap: 30px;
+            grid-template-columns: 25% auto 35%;
+
+            .nav-category {
+                @include cols-repeat(lg, 3);
+            }
+
+            &-title {
+                @include font-w("semi-bold");
+                @include p-text-base;
+                padding-left: 10px;
+                margin-bottom: 20px;
+                padding-bottom: 15px;
+                color: map-get($colors, clr-eeric-black);
+                @include border(lighten(map-get($colors, clr-dimGray), 45%), 1px, bottom);
+            }
+        }
+
+        .dropdown-container {
+            display: grid;
+            gap: 30px;
+            grid-template-columns: auto 30%;
+
+            .nav-category {
+                @include cols-repeat(lg, 5);
+            }
+        }
+
+        .view-more-btn {
+            color: map-get($colors, clr-mauveine);
+            @include font-w("medium");
+            padding-left: 10px;
+            margin-top: 20px;
+        }
+
+        .content-wrapper {
+            height: 100%;
+            display: flex;
+            justify-content: space-between;
+            flex-direction: column;
+            padding-bottom: 15px;
+        }
+
+        .nav-category {
+
+            display: grid;
+            @include cols-repeat(lg, 3);
+            row-gap: 8px;
+
+            .nav-link {
+                @include hard;
+            }
+
+            .category-column {
+                .dropdown-content-title {
+                    @include p-text-sm;
+                    color: map-get($colors, clr-eeric-black);
+                    @include border-none;
+                    @include hard;
+                    @include flush;
+                    padding-left: 5px;
+                    margin-bottom: 12px;
+                }
+            }
+        }
+
+        .top-picks {
+            .secondary-card {
+                box-shadow: rgba(0, 0, 0, 0.02) 0px 1px 3px 0px, rgba(27, 31, 35, 0.15) 0px 0px 0px 1px;
+
+                .banner {
+                    .img-cover {
+                        height: 300px;
+                    }
+
+                }
+
+                .content {
+                    .title {
+                        @include font-w("semi-bold");
+                        font-family: $font-family-int;
+                        text-align: center;
+                        @include py(5px);
+                    }
+                }
+
+            }
+        }
+
+        .grid-col-2 {
+            display: grid;
+            grid-template-columns: 30% auto;
+            gap: 10px;
+
+
+        }
+
+        .grid-col-3 {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 10px;
+        }
+    }
+}

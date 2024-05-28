@@ -1,0 +1,72 @@
+.form {
+    &-select {
+        @include p-text-base;
+        width: 120px;
+        color: map-get($colors, clr-black);
+        @include border-r-none;
+        @include border-none;
+        outline: none;
+
+        &:focus {
+
+            box-shadow: none;
+        }
+
+        option {
+            @include p-text-sm;
+
+        }
+    }
+
+    &-control {
+        @include border-r-none;
+        @include border-none;
+        background: transparent;
+        @include p-text-base;
+        color: map-get($colors, clr-dimGray) !important;
+    }
+
+    &-label {
+        @include p-text-base;
+        font-family: $font-family-int;
+        @include font-w("medium");
+        color: map-get($colors, clr-black);
+
+        &-sm {
+            @include p-text-base;
+            font-family: $font-family-int;
+        }
+    }
+
+    &-check-input {
+        @include border-r-none;
+        &[type=radio]{
+            border-radius: 100% !important;
+            @include box(15px);
+            margin-bottom: 5px;
+        }
+
+        &:checked {
+            background: map-get($colors, clr-mauveine);
+            @include border-none;
+        }
+
+        &:focus {
+            box-shadow: none;
+            // @include border-none;
+            border-color: map-get($colors,clr-dimGray)
+        }
+    }
+
+    &-btn {
+        @include py(14px);
+    }
+}
+
+.form-col {
+    @include bg-color(map-get($colors, clr-white));
+    @include border-radius(5px);
+    overflow: hidden;
+    @include py(5px);
+    @include px(10px);
+}

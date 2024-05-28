@@ -1,0 +1,16 @@
+/* =============== GOOGEL FONTS =============== */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Jost:wght@300;400;500;600;700;800&family=Playfair+Display:wght@400;600;700;800;900&family=Poppins:wght@300;400;500;600;700;800&display=swap');
+/* =============== HTML =============== */
+html{
+    scroll-behavior: smooth;
+    overflow-y: scroll;
+    -moz-osx-font-smoothing: grayscale;
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+}
+/* =============== BODY =============== */
+body{
+    min-height: 100vh !important;
+}
+
+/* =============== PAGE WRAPPER  =============== */

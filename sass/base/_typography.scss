@@ -1,0 +1,234 @@
+html{
+    -webkit-text-size-adjust: 100%;
+    font-size: calculateRem(map-get($font-size,"sm"));
+}
+
+body{
+    @include font($base-font-family, $base-font-size, $base-font-color, $base-font-weight);
+}
+p{
+    @include font($font-family-pop, $base-font-size, $base-font-color, $base-font-weight);
+}
+h1, h2, h3, h4, h5, h6{
+    text-rendering: optimizeLegibility;
+    @include font($title-font-family, false, $heading-color, map-get($font-weights, 'bold'));
+    @include flush--bottom;
+}
+
+* + h1, 
+* + h2,
+* + h3,
+* + h4,
+* + h5,
+* + h6{
+    @include m(0px);
+}
+
+h1, .h1{ font-size: unquote($h1-font-size+"px"); }
+h2, .h2{ font-size: unquote($h2-font-size+"px"); }
+h3, .h3{ font-size: unquote($h3-font-size+"px"); }
+h4, .h4{ font-size: unquote($h4-font-size+"px"); }
+h5, .h5{ font-size: unquote($h5-font-size+"px"); }
+h6, .h6{ font-size: unquote($h6-font-size+"px"); }
+
+// text 
+%text{
+    @include font-w("regular");
+    color: $text-color;
+    @include font($base-font-family);
+    // letter-spacing: $paragraph-letter-spacing;
+}
+
+// paragraph font sizes
+$p--xx-sm: (
+    sm: "4x-sm",
+    lg: "xxx-sm"
+);
+$p--x-sm: (
+    sm: "xxx-sm",
+    lg: "xx-sm"
+);
+$p--sm: (
+    sm: "xx-sm",
+    lg: "x-sm"
+);
+
+$p--base: (
+    sm: "sm",
+    lg: "base"
+);
+$p--md: (
+    sm: "sm",
+    lg: "md"
+);
+
+$p--lg: (
+    sm: "base",
+    lg: "lg"
+);
+
+$p--x-lg: (
+    sm: "lg",
+    lg: "x-lg"
+);
+
+$p--xx-lg: (
+    sm: "x-lg",
+    lg: "xx-lg"
+);
+
+$p--xxx-lg: (
+    sm: "xx-lg",
+    lg: "xxx-lg"
+);
+
+.p-text{
+    //Extra extra small text
+    &-xx-sm{
+        @extend %text;
+        @include font-s(map-get($font-size, "4x-sm"));
+        @each $breakpoint, $fs-size in $p--xx-sm{
+            @include breakpoint-up($breakpoint){
+                @include font-s(map-get($font-size, $fs-size));
+            }
+        }
+    }
+    //Extra small text
+    &-x-sm{
+        @extend %text;
+        @include font-s(map-get($font-size, "xxx-sm"));
+        @each $breakpoint, $fs-size in $p--x-sm{
+            @include breakpoint-up($breakpoint){
+                @include font-s(map-get($font-size, $fs-size));
+            }
+        }
+    }
+    // small text
+    &-sm{
+        @extend %text;
+        @include font-s(map-get($font-size, "xxx-sm"));
+        @each $breakpoint, $fs-size in $p--sm{
+            @include breakpoint-up($breakpoint){
+                @include font-s(map-get($font-size, $fs-size));
+            }
+        }
+    }
+    // base text 
+    &-base{
+        @extend %text;
+        @include font-s(map-get($font-size, "x-sm"));
+        @each $breakpoint, $fs-size in $p--base{
+            @include breakpoint-up($breakpoint){
+                @include font-s(map-get($font-size, $fs-size));
+            }
+        }
+    }
+    // md text 
+    &-md{
+        @extend %text;
+        @include font-s(map-get($font-size, "x-sm"));
+        @each $breakpoint, $fs-size in $p--md{
+            @include breakpoint-up($breakpoint){
+                @include font-s(map-get($font-size, $fs-size));
+            }
+        }
+    }
+
+    // large text
+    &-lg{
+        @extend %text;
+        @include font-s(map-get($font-size, "sm"));
+        @each $breakpoint, $fs-size in $p--lg{
+            @include breakpoint-up($breakpoint){
+                @include font-s(map-get($font-size, $fs-size));
+            }
+        }
+    }
+
+    &-x-lg{
+        @extend %text;
+        @include font-s(map-get($font-size, "base"));
+        @each $breakpoint, $fs-size in $p--x-lg{
+            @include breakpoint-up($breakpoint){
+                @include font-s(map-get($font-size, $fs-size));
+            }
+        }
+    }
+
+    &-xx-lg{
+        @extend %text;
+        @include font-s(map-get($font-size, "lg"));
+        @each $breakpoint, $fs-size in $p--xx-lg{
+            @include breakpoint-up($breakpoint){
+                @include font-s(map-get($font-size, $fs-size));
+            }
+        }
+    }
+}
+
+@mixin p-text-x-sm{
+    @extend %text;
+    @include font-s(map-get($font-size, "xxx-sm"));
+    @each $breakpoint, $fs-size in $p--x-sm{
+        @include breakpoint-up($breakpoint){
+            @include font-s(map-get($font-size, $fs-size));
+        }
+    }
+}
+@mixin p-text-sm{
+    @extend %text;
+    @include font-s(map-get($font-size, "xx-sm"));
+    @each $breakpoint, $fs-size in $p--sm{
+        @include breakpoint-up($breakpoint){
+            @include font-s(map-get($font-size, $fs-size));
+        }
+    }
+}
+@mixin p-text-base{
+    @extend %text;
+    @include font-s(map-get($font-size, "sm"));
+    @each $breakpoint, $fs-size in $p--base{
+        @include breakpoint-up($breakpoint){
+            @include font-s(map-get($font-size, $fs-size));
+        }
+    }
+}
+@mixin p-text-lg{
+    @extend %text;
+    @include font-s(map-get($font-size, "md"));
+    @each $breakpoint, $fs-size in $p--lg{
+        @include breakpoint-up($breakpoint){
+            @include font-s(map-get($font-size, $fs-size));
+        }
+    }
+}
+@mixin p-text-x-lg{
+    @extend %text;
+        @include font-s(map-get($font-size, "base"));
+    
+        @each $breakpoint, $fs-size in $p--x-lg {
+            @include breakpoint-up($breakpoint) {
+                @include font-s(map-get($font-size, $fs-size));
+            }
+        }
+}
+@mixin p-text-xx-lg{
+    @extend %text;
+        @include font-s(map-get($font-size, "lg"));
+    
+        @each $breakpoint, $fs-size in $p--xx-lg {
+            @include breakpoint-up($breakpoint) {
+                @include font-s(map-get($font-size, $fs-size));
+            }
+        }
+}
+@mixin p-text-xxx-lg{
+    @extend %text;
+        @include font-s(map-get($font-size, "x-lg"));
+    
+        @each $breakpoint, $fs-size in $p--xxx-lg {
+            @include breakpoint-up($breakpoint) {
+                @include font-s(map-get($font-size, $fs-size));
+            }
+        }
+}

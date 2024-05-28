@@ -1,0 +1,27 @@
+// flexbox
+%flexbox{
+	display: -webkit-box;
+	display: -webkit-flex;
+	display: -moz-flex;
+	display: -ms-flexbox;
+	display: flex;
+}
+
+%inline-flex{
+    display: -webkit-inline-box;
+	display: -webkit-inline-flex;
+	display: -moz-inline-flex;
+	display: -ms-inline-flexbox;
+	display: inline-flex;
+}
+
+%block{
+	display: block;
+}
+%grid{
+	display: grid;
+}
+
+%inline-block{
+	display: inline-block;
+}

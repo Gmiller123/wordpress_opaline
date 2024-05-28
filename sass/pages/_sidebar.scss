@@ -1,0 +1,92 @@
+.color,
+.color input {
+  position: relative;
+  overflow: hidden;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+}
+
+@media (max-width: 615px) {
+  .color,
+  .color input {
+    width: 14px;
+    height: 14px;
+    margin-right: 8px;
+  }
+}
+
+.color {
+  display: inline-block;
+  margin-right: 12px;
+}
+
+.color input {
+  position: absolute;
+  top: 0;
+  left: 0;
+  opacity: 0;
+  z-index: 2;
+  cursor: pointer;
+}
+
+.color i {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background-image: url(http://cdn.nicolapps.ch/images/uploads/1478199301.png);
+  background-size: 20px;
+  background-repeat: no-repeat;
+  background-position: center center;
+
+  opacity: 0;
+  transition: 0.15s opacity ease-in-out;
+}
+
+.color input:checked + i {
+  opacity: 1;
+}
+
+input {
+  cursor: pointer !important;
+}
+
+.acc-label {
+  font-size: 12px;
+
+  @include breakpoint-up(md) {
+    font-size: 14px;
+  }
+  @include breakpoint-up(lg) {
+    font-size: 16px;
+  }
+}
+
+.accordion-button {
+  font-size: 13px;
+
+  @include breakpoint-up(md) {
+    font-size: 15px;
+  }
+  @include breakpoint-up(lg) {
+    font-size: 17px;
+  } 
+}
+
+.opline-product-filter h1 {
+  font-size: 16px;
+
+  @include breakpoint-up(md) {
+    font-size: 18px;
+  }
+  @include breakpoint-up(lg) {
+    font-size: 20px;
+  }
+}
+
+.accordion-body label{
+  cursor: pointer;
+
+}

@@ -1,0 +1,91 @@
+.footer {
+    &-top {
+        @include py(21px);
+        @include bg-color(map-get($colors, clr-white));
+
+        .socialmedia {
+            &-title {
+                font-family: $font-family-pop;
+                @include p-text-lg;
+                color: map-get($colors, clr-dimGray);
+                @include font-w(normal);
+            }
+
+            &-item {
+                @include p-text-x-lg;
+                color: map-get($colors, clr-mauveine);
+            }
+        }
+
+        .appPlatform {
+            &-title {
+                @include p-text-base;
+                white-space: nowrap;
+                margin-right: 8px;
+
+            }
+
+            &-list {
+                display: flex;
+                justify-content: start;
+                gap: 13px;
+                align-items: center;
+            }
+        }
+
+    }
+
+    &-main {
+        @include py(65px, 45px);
+
+        .footer-grid-container {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            @include cols-repeat(sm, 4);
+            row-gap: 20px;
+            @include cols-repeat(md, 5);
+            @include cols-repeat(lg, 5);
+        }
+
+        .footer-nav {
+            &-title {
+                @include p-text-base;
+                @include font-w('normal');
+                margin-bottom: 12px;
+            }
+
+            .nav-link {
+                @include hard;
+                @include p-text-sm;
+                line-height: 35px !important;
+                @include font-w('light');
+            }
+        }
+    }
+}
+// global design 
+.product {
+    &-list {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+    }
+
+    &-link {
+        .img-cover {
+            @include box(35px);
+            margin: auto;
+            margin-bottom: 10px;
+
+            img {
+                object-fit: contain;
+            }
+        }
+
+        .title {
+            @include p-text-sm;
+            color: map-get($colors, clr-jet);
+            @include font-w('normal');
+        }
+    }
+}

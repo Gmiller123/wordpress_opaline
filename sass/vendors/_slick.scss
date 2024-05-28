@@ -1,0 +1,51 @@
+.owl {
+    &-dot {
+        span {
+            width: 32px !important;
+            height: 5px !important;
+        }
+
+        &.active {
+            span {
+                background-color: map-get($colors, clr-steelPink) !important;
+            }
+        }
+    }
+
+    &-nav {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    &-prev,
+    &-next {
+        @include box(45px);
+        @include border(map-get($colors, clr-mauveine) !important);
+        @include border-radius(100% !important);
+        overflow: hidden;
+        color: map-get($colors, clr-mauveine) !important;
+        background: opacity(map-get($colors, clr-white), 0.9) !important;
+        @include pos-absolute;
+        top: 50%;
+        transform: translateY(-50%);
+
+        &:hover {
+            color: map-get($colors, clr-white) !important;
+            background: opacity(map-get($colors, clr-mauveine), 0.8) !important;
+        }
+    }
+    &-prev{
+        left: 0;
+        @include breakpoint-up(sm){
+            left: -2%;
+        }
+    }
+    &-next{
+        right: 0;
+        @include breakpoint-up(sm){
+            right: -2%;
+        }
+    }
+
+}

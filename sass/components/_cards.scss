@@ -1,0 +1,1021 @@
+.trending-card {
+    height: 450px;
+    @include pos-relative;
+
+    &:after {
+        @include pseudo;
+        @include box(100%);
+        top: 0;
+        left: 0;
+        z-index: 1;
+        background: linear-gradient(0deg,
+                map-get($colors, clr-russianViolet) -2.18%,
+                opacity(map-get($colors, clr-russianViolet), 0) 91.7%);
+    }
+
+    .img-cover {
+        height: 100%;
+    }
+
+    .card {
+        &-tag {
+            display: flex;
+            justify-content: space-between;
+            @include pos-absolute;
+            top: 10px;
+            width: 100%;
+            padding: 0 10px;
+            z-index: 2;
+
+            .col-r {
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                @include bg-color(map-get($colors, clr-white));
+                padding: 2px 8px;
+                @include border-radius(5px);
+                @include p-text-x-sm;
+                gap: 10px;
+                color: map-get($colors, clr-mauveine);
+
+                span {
+                    @include border(map-get($colors, clr-thistle));
+                    padding: 2px;
+                    @include box(20px);
+                    @include flex-center;
+                    @include border-radius(5px);
+                }
+            }
+
+            .col-l {
+                @include bg-color(opacity(map-get($colors, clr-dimGray), 0.8));
+                @include py(3px);
+                @include px(5px);
+                color: map-get($colors, clr-white);
+                @include border-radius(8px);
+                @include p-text-sm;
+            }
+        }
+
+        &-content {
+            @include pos-absolute;
+            bottom: 5px;
+            left: 0;
+            width: 100%;
+            @include px(12px);
+            display: flex;
+            gap: 10px;
+            z-index: 2;
+
+            .img-cover {
+                @include box(165px, 88px);
+                @include border(map-get($colors, clr-white), 4px)
+            }
+
+            .title {
+                @include p-text-base;
+                color: map-get($colors, clr-white);
+                @include font-w('normal');
+            }
+        }
+    }
+}
+
+.primary-card {
+    height: 458px;
+    @include pos-relative;
+
+    .img-cover {
+        height: 100%;
+
+        img {
+            object-position: top;
+        }
+    }
+
+    .card {
+        &-content {
+            @include pos-absolute;
+            bottom: 64px;
+            width: 100%;
+            z-index: 2;
+            @include px(20px);
+
+            .title {
+                color: map-get($colors, clr-white);
+                font-family: $font-family-Pl;
+                @include p-text-x-lg;
+                @include font-w('bold');
+                text-align: center;
+                margin-bottom: 22px;
+            }
+
+            .sec-title {
+                color: map-get($colors, clr-white);
+                font-family: $font-family-Pl;
+                @extend %scTitle;
+                @include font-w('bold');
+                text-align: center;
+                margin-bottom: 22px;
+            }
+
+            .sub-title {
+                color: map-get($colors, clr-white);
+                font-family: $font-family-pop;
+                @include p-text-xxx-lg;
+                @include font-w('normal');
+                text-align: center;
+                margin-bottom: 22px;
+            }
+        }
+    }
+}
+
+.secondary-card {
+    overflow: hidden;
+    @include pos-relative;
+    width: 100%;
+
+    &:hover {
+        .icon {
+            visibility: visible;
+            transition: 300ms ease-out;
+        }
+    }
+
+
+
+
+    .icon {
+        @include pos-absolute;
+        top: 50%;
+        left: 50%;
+        transform: translateX(-50%);
+        visibility: hidden;
+        transition: 300ms ease-out;
+
+        .tooltip-btn {
+            color: map-get($colors, clr-mauveine);
+            @include box(45px);
+            @include bg-color(map-get($colors, clr-white));
+            @include border-radius(10px);
+            @include border-none;
+        }
+
+        .content {
+            @include border-radius(10px);
+            @include bg-color(map-get($colors, clr-mauveine));
+            color: map-get($colors, clr-white);
+            @include p-text-sm;
+            white-space: nowrap;
+            @include px(10px);
+            @include py(5px);
+            @include pos-absolute;
+            bottom: 120%;
+            left: 50%;
+            transform: translateX(-50%);
+            visibility: hidden;
+            transition: 300ms ease-out;
+
+            &::after {
+                @include pseudo;
+                @include css-triangle(map-get($colors, clr-mauveine), down, 12px);
+                top: 100%;
+                left: 50%;
+                transform: translateX(-50%);
+            }
+        }
+
+        &:hover {
+            .content {
+                transition: 300ms ease-out;
+                visibility: visible;
+            }
+        }
+    }
+
+    .banner {
+        margin-bottom: 9px;
+        @include pos-relative;
+
+        %tag {
+            @include pos-absolute;
+            left: 0;
+            z-index: 2;
+            @include px(10px);
+            @include py(3px);
+        }
+
+        .tag {
+            @extend %tag;
+            @include bg-color(map-get($colors, clr-black));
+            color: map-get($colors, clr-white);
+            top: 40px;
+            @include p-text-sm;
+
+            &.sold {
+                @include bg-color(map-get($colors, clr-chiliRed));
+            }
+        }
+
+        .custom-tag {
+            @extend %tag;
+            @include bg-color(map-get($colors, clr-mauveine));
+            color: map-get($colors, clr-white);
+            bottom: 40px;
+            @include p-text-sm;
+            width: 100px;
+
+        }
+
+        .img-cover {
+            height: 385px;
+
+            img {
+                object-position: top;
+            }
+        }
+    }
+
+    .content {
+        @include px(4px);
+
+        .title {
+            color: map-get($colors, clr-black);
+            @include font-w("normal");
+            @include p-text-base;
+            text-transform: capitalize;
+            margin-bottom: 8px;
+        }
+
+        .price {
+            display: flex;
+            align-items: center;
+            gap: 5px;
+            justify-content: start;
+
+            .original,
+            .sell {
+                @include p-text-x-sm;
+
+            }
+
+            .original {
+                font-family: $font-family-int;
+                text-decoration: line-through;
+            }
+
+            .sell {
+                font-family: $font-family-pop;
+                color: map-get($colors, clr-black);
+                @include font-w('bold');
+            }
+        }
+
+
+    }
+
+    .btn {
+        @include border-none;
+    }
+
+    .offer-text {
+        color: map-get($colors, clr-mauveine);
+        @include p-text-base;
+        @include font-w("medium");
+        font-family: $font-family-int;
+    }
+
+    &.white {
+        .banner {
+            .img-cover {
+                height: 300px;
+            }
+        }
+
+        .title {
+            color: map-get($colors, clr-white);
+            @include p-text-sm;
+        }
+
+        .price {
+
+            .sell,
+            .original {
+                color: map-get($colors, clr-white);
+            }
+        }
+    }
+
+
+}
+
+.dress-colors {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 14px;
+    color: map-get($colors, clr-black);
+    text-transform: uppercase;
+    @include p-text-sm;
+    font-weight: 400;
+    font-family: $font-family-pop;
+
+    .color-boxes {
+        .box {
+            @extend %inline-block;
+            @include box(18px);
+            @include border-r-circle;
+            margin-right: 5px;
+
+            &:hover,
+            &.active {
+                outline: 1px solid lighten(map-get($colors, clr-dimGray), 40%);
+                outline-offset: 2px;
+            }
+
+
+            @for $i from 1 through length($dressColor) {
+                &:nth-child(#{length($dressColor)}n+#{$i}) {
+                    background: nth($dressColor, $i);
+                }
+            }
+
+        }
+    }
+}
+
+.order-row {
+    // display: flex;
+    // justify-content: space-between;
+    // align-items: start;
+    // flex-wrap: wrap;
+    @extend %grid;
+    grid-template-columns: repeat(1, 1fr);
+    @include cols-repeat(md, 2);
+    @include cols-repeat(lg, 2);
+    gap: 20px;
+
+
+    .dress-size {
+        display: flex;
+        justify-content: space-between;
+        flex-direction: column;
+        align-items: start;
+
+        margin-top: 14px;
+        color: map-get($colors, clr-black);
+        text-transform: uppercase;
+        @include p-text-sm;
+        font-weight: 400;
+        font-family: $font-family-pop;
+
+
+    }
+}
+
+.size-boxes {
+    @include flex-center;
+    justify-content: start;
+    align-items: center;
+    gap: 5px;
+
+    .box {
+        cursor: pointer;
+        @include flex-center;
+        @include box(48px);
+        @include border-radius(5px);
+        margin-top: 5px;
+        background-color: map-get($colors, clr-white);
+        border: 1px solid opacity(map-get($colors, clr-jet), 0.2);
+
+        &.active {
+            border-color: map-get($colors, clr-jet);
+        }
+    }
+}
+
+// @for 
+.offer-card {
+    height: 458px;
+    background: linear-gradient(180deg, map-get($colors, clr-mauveine) 0.04%, opacity(map-get($colors, clr-mauveine), 0) 114.82%), linear-gradient(0deg, map-get($colors, clr-russianViolet) 0%, map-get($colors, clr-mauveine) 100%);
+    @include flex-center;
+    @include px(10px);
+
+    .title {
+        color: map-get($colors, clr-voilet);
+        font-family: $font-family-Pl;
+        @include p-text-xx-lg;
+        @include font-w('bold');
+        text-align: center;
+    }
+}
+
+.discount-card {
+    @include bg-color(map-get($colors, clr-indigo));
+    padding: 15px;
+    height: 365px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+
+    .offer-detail {
+        color: map-get($colors, clr-white);
+        @include font-w("normal");
+        @include p-text-sm;
+    }
+
+    .product-detail {
+        color: map-get($colors, clr-white);
+        @include font-w("normal");
+        @include p-text-x-lg;
+    }
+
+    .offer- {
+        &quote {
+            color: map-get($colors, clr-white);
+            @include font-w("semi-bold");
+            @include p-text-x-lg;
+        }
+
+        &amount {
+            display: flex;
+            align-items: flex-start;
+            color: map-get($colors, clr-white);
+            @include font-w("semi-bold");
+            @include p-text-x-lg;
+
+            .amount {
+                @include font-s(80);
+                color: map-get($colors, clr-white);
+            }
+        }
+    }
+}
+
+.feedback-card {
+    @include bg-color(map-get($colors, clr-white));
+    @include border(opacity(map-get($colors, clr-dimGray), 0.25));
+    @include border-radius(8px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 42px;
+    @include py(26px);
+    @include px(28px);
+
+    @include breakpoint-down(xl) {
+        flex-direction: column;
+    }
+
+    .img-cover {
+        max-width: 225px;
+        max-height: 300px;
+        overflow: hidden;
+
+        @include breakpoint-down(xl) {
+            max-width: 100%;
+            max-height: 350px;
+            width: 100%;
+        }
+    }
+
+    .content {
+        p {
+            font-family: $font-family-Pl;
+            @include p-text-sm;
+        }
+
+        .feedback-person {
+            color: map-get($colors, clr-eeric-black);
+            @include font-w('medium');
+            @include p-text-sm;
+
+        }
+
+        .location {
+            @include p-text-sm;
+
+        }
+    }
+}
+
+.sales-card {
+    .content {
+        @include py(30px);
+        height: 300px;
+        border-bottom: 2px solid;
+        border-top: 2px solid;
+        border-color: map-get($colors, clr-mauveine);
+        margin-bottom: 40px;
+
+        .title {
+            @include p-text-xxx-lg;
+            color: map-get($colors, clr-white);
+            font-family: $font-family-Pl;
+            text-align: center;
+
+            &-sub {
+                @include p-text-base;
+                @include font-w('light');
+                text-align: center;
+                color: map-get($colors, clr-phlox);
+                margin-bottom: 35px;
+            }
+        }
+
+        .counter {
+            &-title {
+                @include p-text-base;
+                color: map-get($colors, clr-white);
+                text-align: center;
+                margin-bottom: 11px;
+            }
+
+            &-date {
+                @include flex-center;
+                gap: 7px;
+                color: map-get($colors, clr-white);
+                @include p-text-sm;
+
+                .box {
+                    @include box(47px);
+                    @include bg-color(map-get($colors, clr-purple));
+                    @include flex-center;
+                    color: map-get($colors, clr-white);
+                    @include p-text-lg;
+                    @include font-w('medium');
+                    margin-bottom: 5px
+                }
+            }
+
+            &-box {
+                @include flex-center;
+                flex-direction: column;
+            }
+        }
+    }
+
+}
+
+%blogCardLayout {
+    // @include bg-color(map-get($colors, clr-white));
+    margin-bottom: 4px;
+    @include py(20px);
+    display: flex;
+    align-items: center;
+    justify-items: start;
+    gap: 10px;
+    border-bottom: 1px solid opacity(map-get($colors, clr-dimGray), 0.3);
+
+
+    @include breakpoint-up(xl) {
+        gap: 20px;
+    }
+
+    .img-cover {
+
+
+        img {
+            object-position: top;
+        }
+    }
+
+    .blog {
+        &-category {
+            @include hard;
+            color: map-get($colors, clr-blue);
+            text-transform: uppercase;
+            margin-bottom: 5px;
+        }
+    }
+
+    .desc-b {
+        p {
+            color: map-get($colors, clr-dimGray) !important;
+        }
+    }
+}
+
+.blog-secondary-card {
+    @extend %blogCardLayout;
+
+    @include breakpoint-down(md) {
+        flex-direction: column;
+    }
+
+    .img {
+        &-container {
+            @include breakpoint-down(md) {
+                width: 100%;
+            }
+        }
+
+        &-cover {
+            height: 205px;
+            width: 100%;
+
+            @include breakpoint-up(md) {
+                @include box(280px, 205px);
+            }
+        }
+    }
+
+    .blog {
+        &-category {
+            @include font-w("normal");
+        }
+
+        &-title {
+            @include hard;
+            color: map-get($colors, clr-black);
+        }
+
+        &-title {
+
+            @include font-w("normal");
+            @include p-text-x-lg;
+        }
+    }
+
+    &-sm {
+
+        @extend %blogCardLayout;
+
+        .img-cover {
+            @include box(140px, 110px);
+        }
+
+        .blog {
+            &-category {
+                @include font-w("medium");
+
+
+            }
+
+            &-title {
+
+                @include font-w("medium");
+
+                &-sec {
+                    @include font-w("medium");
+                    color: map-get($colors, clr-black);
+                }
+            }
+        }
+    }
+}
+
+.ad-card {
+    @include bg-color(map-get($colors, clr-mauveine));
+    @include py(50px);
+    @include px(50px);
+    text-align: center;
+
+    .title {
+        @include font-w("bold");
+        @include p-text-xx-lg;
+        color: map-get($colors, clr-white);
+        margin-bottom: 20px;
+    }
+
+    .desc-w {
+        p {
+            color: map-get($colors, clr-white);
+            @include font-w("bold");
+            font-family: $font-family-int;
+            @include p-text-lg;
+        }
+
+        margin-bottom: 20px;
+    }
+}
+
+.blog-card {
+    @include px(10px);
+    @include py(10px);
+    // @include bg-color(map-get($colors, clr-white));
+
+    @include breakpoint-up(xxl) {
+        @include px(20px);
+        @include py(20px);
+    }
+
+    .img-cover {
+        height: 250px;
+        width: 100%;
+        margin-bottom: 10px;
+
+        @include breakpoint-up(xxl) {
+            margin-bottom: 20px;
+        }
+
+        img {
+            object-position: top;
+        }
+    }
+
+    .category {
+        @include p-text-sm;
+
+        color: map-get($colors, clr-mauveine);
+        @include font-w("medium");
+        margin-bottom: 5px;
+
+        @include breakpoint-up(xxl) {
+            margin-bottom: 10px;
+        }
+    }
+
+    .title {
+        @include p-text-lg;
+        color: map-get($colors, clr-black);
+        font-family: $font-family-int;
+        margin-bottom: 5px;
+
+        @include breakpoint-up(xxl) {
+            margin-bottom: 10px;
+        }
+    }
+
+    .desc-b,
+    .desc-w {
+        margin-bottom: 5px;
+
+        @include breakpoint-up(xxl) {
+            margin-bottom: 10px;
+        }
+
+        p {
+            @include p-text-sm;
+        }
+    }
+
+    .card-bottom {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 10px;
+
+        .col-item {
+            ul {
+                display: flex;
+                align-items: center;
+                justify-content: start;
+                gap: 8px;
+
+                li {
+                    @include p-text-sm;
+                    color: map-get($colors, clr-black);
+                    @include font-w("medium");
+                }
+            }
+        }
+    }
+}
+
+// check out page 
+.check-out-card {
+    @include my(15px);
+
+    .qty-price {
+        display: flex;
+        align-items: center;
+        justify-content: space-around;
+        gap: 15px;
+
+        @include breakpoint-down(sm) {
+            flex-direction: column;
+            align-items: start;
+        }
+    }
+
+    .product-card {
+        display: flex;
+        align-items: center;
+        justify-content: start;
+        gap: 15px;
+
+        @include breakpoint-down(md) {
+            flex-direction: column;
+        }
+
+        .img-container {
+            @include box(200px, 200px);
+
+            @include breakpoint-down(md) {
+                @include box(300px, 250px);
+            }
+
+            .img-cover {
+                height: 100%;
+
+                img {
+                    object-position: top;
+                }
+            }
+        }
+
+        .card-content {
+            .title {
+                @include p-text-lg;
+                color: map-get($colors, clr-black);
+                @include font-w("medium");
+                margin-bottom: 8px;
+            }
+        }
+
+        .details-list {
+            @include p-text-sm;
+            @include font-w("medium");
+            margin-bottom: 11px;
+
+            span {
+                span {
+                    color: map-get($colors, clr-black);
+                }
+            }
+        }
+
+        .crud {
+            &-link {}
+
+            &-list {
+                @include p-text-sm;
+                color: map-get($colors, clr-black);
+                text-decoration: underline;
+                @include font-w("medium");
+                display: flex;
+                align-items: center;
+                justify-content: start;
+                gap: 10px;
+            }
+        }
+    }
+}
+
+.contact-card {
+    display: flex;
+    align-items: start;
+    justify-content: space-between;
+    gap: 15px;
+    @include bg-color(lighten(map-get($colors, clr-palePurple), 5%));
+    // box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+    // box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+    @include px(20px);
+    @include py(20px);
+
+    .icon {
+        @include py(10px);
+
+        .img-cover {
+            @include box(20px);
+        }
+    }
+
+    .title {
+        @include p-text-base;
+        color: map-get($colors, clr-mauveine);
+        @include font-w("medium");
+    }
+
+    .content {
+        p {
+            @include p-text-sm;
+            margin: 0;
+        }
+    }
+}
+
+.category-card {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    @include bg-color(lighten(map-get($colors, clr-palePurple), 5%));
+    @include box(auto, 250px);
+
+    @include transition-default;
+
+    .img-cover {
+        @include box(100px);
+        margin-bottom: 10px;
+    }
+
+    .title {
+        @include p-text-lg;
+        color: map-get($colors, clr-black);
+        @include font-w("medium");
+        @include transition-default;
+    }
+
+    &:hover {
+        .title {
+            color: map-get($colors, clr-mauveine);
+            @include transition-default;
+        }
+
+        box-shadow: rgba(50, 50, 105, 0.15) 0px 2px 5px 0px,
+        rgba(0, 0, 0, 0.05) 0px 1px 1px 0px;
+        @include transition-default;
+    }
+}
+
+.order-card {
+    @include my(0, 20px);
+
+    &--header {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        @include py(10px);
+        @include border(opacity(map-get($colors, clr-dimGray), 0.35), 1px, bottom);
+
+        .link {
+            @include font-w("medium");
+            color: map-get($colors, clr-pictonBlue);
+            font-family: $font-family-int;
+        }
+
+
+    }
+
+    &--body {
+        @include my(10px);
+        display: grid;
+        // gap: 10px;
+        width: 100%;
+        grid-template-columns: 18% 30% 17% 17% 18%;
+
+        @include breakpoint-down(xl) {
+            grid-template-columns: 30% 50% 20%;
+            row-gap: 20px;
+        }
+
+        @include breakpoint-down(md) {
+            grid-template-columns: 40% 60%;
+            row-gap: 20px;
+        }
+
+        // @include breakpoint-down(lg){
+        // }
+        align-items: center;
+
+        .grid-col {
+            @include px(0, 10px);
+
+            .img-cover {
+                height: 150px;
+
+                img {
+                    object-position: top center;
+                }
+            }
+        }
+    }
+
+    .order {
+        &-number {
+            @include p-text-base;
+            @include font-w("bold");
+            color: map-get($colors, clr-blue);
+
+            span {
+                @include font-w("medium");
+                color: map-get($colors, clr-pictonBlue);
+                font-family: $font-family-int;
+            }
+        }
+
+        &-date {
+            color: map-get($colors, clr-dimGray);
+            @include p-text-base;
+        }
+    }
+}
+
+.rounded-card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 15px;
+
+    .img-cover {
+        @include border-r-circle;
+        @include box(80px);
+        overflow: hidden;
+        box-shadow: rgba(0, 0, 0, 0.02) 0px 1px 3px 0px, rgba(27, 31, 35, 0.15) 0px 0px 0px 1px;
+
+        img {
+            object-position: top;
+
+        }
+    }
+
+    .title {
+        @include p-text-base;
+        margin-top: 5px;
+    }
+}

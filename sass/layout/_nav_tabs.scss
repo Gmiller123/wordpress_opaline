@@ -1,0 +1,218 @@
+.nav-pills {
+  @include breakpoint-up(lg) {
+    @include pos-absolute;
+    top: 100px;
+    left: 33%;
+  }
+
+  .nav {
+    &-link {
+      color: map-get($colors, clr-dimGray);
+      @include border-r-none;
+      @include transition-default;
+      @include font-w("medium");
+      @include p-text-base;
+      font-family: $font-family-jo;
+
+      &.active {
+        color: map-get($colors, clr-indigo-v2);
+        @include bg-none;
+        @include transition-default;
+        @include pos-relative;
+
+        &::after {
+          @include pseudo;
+          top: 100%;
+          left: 0;
+          @include box(100%, 3px);
+          @include bg-color(map-get($colors, clr-indigo-v2));
+        }
+      }
+    }
+  }
+
+  // side navbar tabs
+  &.sidebar-tab {
+    position: static;
+    display: block;
+    @include bg-color(opacity(map-get($colors, clr-dimGray), 0.06));
+
+    .nav {
+      &-link {
+        text-align: left;
+        width: 100%;
+        text-transform: uppercase;
+        @include font-w("medium");
+        @include border(map-get($colors, clr-white), 1px, top);
+        font-family: $font-family-pop;
+
+        &::after {
+          height: 100%;
+          width: 3px;
+          top: 0;
+        }
+      }
+    }
+  }
+
+  &.fixed {
+    position: static;
+    // display: block;
+    gap: 10px;
+    @include border(opacity(map-get($colors, clr-dimGray), 0.14), 1px, bottom);
+    .nav {
+      &-link {
+        font-family: $font-family-pop;
+      }
+    }
+  }
+}
+
+.pagination-nav {
+  .page {
+    &-link {
+      @include border-none;
+      @include border-r-none;
+      @include px(15px);
+      @include bg-none;
+      color: map-get($colors, clr-black);
+      @include transition-default;
+
+      &.active {
+        color: map-get($colors, clr-white);
+        @include bg-color(map-get($colors, clr-black) !important);
+        @include transition-default;
+      }
+    }
+  }
+}
+
+.blog-collections {
+  .nav-pills {
+    position: static;
+
+    .nav {
+      &-link {
+        &::after {
+          content: none;
+        }
+      }
+    }
+  }
+}
+
+.accordion {
+  &-item {
+    @include bg-none;
+    border: none !important;
+    &:not(:last-child) {
+      border-bottom: 1px solid rgba(0, 0, 0, 0.125) !important;
+      //   border: none;
+    }
+  }
+
+  &-button {
+    @include hard;
+    @include py(12px);
+    @include bg-color(transparent !important);
+    @include p-text-base;
+    color: map-get($colors, clr-black);
+
+    &::after {
+      content: "\2b";
+      @include bg-none;
+      font-family: "Font Awesome 5 Free";
+    }
+
+    &:not(.collapsed) {
+      color: map-get($colors, clr-mauveine);
+      box-shadow: none !important;
+
+      &::after {
+        transform: none;
+        content: "\f068";
+        font-weight: 800;
+      }
+    }
+  }
+
+  &-body {
+    padding: 0;
+    ul {
+      list-style-type: disc;
+      list-style-position: inside;
+      padding-left: 5px;
+      @include px(5px, 0);
+
+      li {
+        color: map-get($colors, clr-blue);
+        @include font-w("medium");
+
+        span {
+          color: map-get($colors, clr-dimGray);
+          @include font-w("normal");
+        }
+      }
+    }
+  }
+
+  // question card
+  &-item {
+    &.question {
+      @include px(20px);
+      @include py(15px);
+      @include border(
+        opacity(map-get($colors, clr-dimGray), 0.2) !important,
+        1px,
+        top
+      );
+      border-bottom: none !important;
+
+      .accordion {
+        &-button {
+          @include hard;
+          color: map-get($colors, clr-dimGray);
+          @include font-w("medium");
+
+          &:not(.collapsed) {
+            box-shadow: none;
+          }
+        }
+
+        &-body {
+          .desc-b {
+            p,
+            li {
+              @include p-text-sm;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+.list-group {
+  flex-wrap: wrap;
+  flex-direction: row;
+  gap: 10px;
+
+  &-item {
+    @include bg-none;
+    @include border-none;
+  }
+
+  &-link {
+    text-transform: uppercase;
+    @include p-text-base;
+    text-decoration: underline;
+    text-decoration-color: map-get($colors, clr-dimGray);
+    @include transition-default;
+
+    &:hover {
+      color: map-get($colors, clr-mauveine);
+      text-decoration-color: map-get($colors, clr-mauveine);
+      @include transition-default;
+    }
+  }
+}

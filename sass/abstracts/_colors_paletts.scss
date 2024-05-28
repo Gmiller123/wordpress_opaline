@@ -1,0 +1,47 @@
+$colors: (
+    clr-white:#FFFFFF,
+    clr-black:#000000,
+    clr-eeric-black:#222,
+    clr-mauveine:#7A0999,
+    clr-mauveine-v2:#9504A2,
+    clr-battleshipGray:#848484,
+    clr-voilet:#DE95F2,
+    clr-palePurple:#F0DDFF,
+    clr-thistle:#FBD2FF,
+    clr-steelPink:#CD00DF,
+    clr-charcoal:#444E66,
+    clr-jet:#333333,
+    clr-indigo:#57066D,
+    clr-indigo-v2:#65077F,
+    clr-phlox:#EC18FF,
+    clr-purple:#720191,
+    clr-darkPurple:#22012A,
+    clr-russianViolet:#230B34,
+    clr-seaSalt:#F7F7F7,
+    clr-dimGray:#666666,
+    clr-chiliRed:#D92D20,
+    clr-spaceCadet:#172B4D,
+    clr-blue:#42526E,
+    clr-princetonOrange:#F79009,
+    clr-pictonBlue:#0BA5EC,
+    clr-green:#039855,
+
+
+);
+
+$womenCollection: (
+    vermilion:#EB4335,
+    lapisLazuli:#4D6995,
+    black:#000000,
+    gold:#AB9246,
+);
+$dressColor:map-get($womenCollection, vermilion),map-get($womenCollection, lapisLazuli),map-get($womenCollection,black),map-get($womenCollection, gold);
+/* ==== Common colors ==== */
+$heading-color: map-get($colors, clr-indigo);
+$text-color: map-get($colors, clr-dimGray);
+
+/* ==== Links colors ==== */
+$clr-link-default: map-get($colors, "clr-black");
+$clr-link-visited: lighten(map-get($colors, "clr-black"), 15%);
+$clr-link-hover: lighten(map-get($colors, "clr-black"), 15%);
+$clr-link-active: lighten(map-get($colors, "clr-black"), 15%);
